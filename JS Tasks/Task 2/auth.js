@@ -18,12 +18,11 @@ auth.onAuthStateChanged(user => {
     if (user) {
         setDashboard(user);
         localStorage.setItem('userEmail', user.email);
-        // location.reload("./dashboard.html");
     } else {
-        // location.reload("./signin.html");
-        console.log(user);
         localStorage.removeItem('userEmail');
         localStorage.removeItem('serveyInfo');
+        window.location = './signin.html'
+
     }
 });
 
@@ -44,9 +43,9 @@ const signupFunc = async () => {
                 admin: true
             })
                 .then(() => {
-                    console.log("Document successfully written!");
-                    location.replace("./dashboard.html");
                     setDashboard(user);
+                    console.log("Document successfully written!");
+                    window.location  = "./dashboard.html";
                 })
                 .catch((error) => {
                     console.error("Error writing document: ", error);
@@ -68,21 +67,20 @@ const signinFunc = async () => {
         .then((userCredential) => {
             var user = userCredential.user;
             // console.log(user);
-            location.replace("./dashboard.html");
+            window.location  = "./dashboard.html";
         })
         .catch((error) => {
             document.querySelector('.error-box').innerHTML = error;
         });
 }
 
-const setDashboard = (user) =>{
+const setDashboard = async(user) =>{
 
     let userEmail = document.querySelector('#user-email');
 
-    db.collection("admin").doc(user.uid).get().then((doc) => {
+    await db.collection("admin").doc(user.uid).get().then((doc) => {
         if (doc.exists) {
             userEmail.innerHTML = doc.data().email;
-            
         } else {
             console.log("No such document!");
         }
@@ -95,7 +93,7 @@ const logout = () => {
     // e.preventDefault();
     firebase.auth().signOut().then(() => {
         console.log("signed out");
-        location.replace('./signin.html');
+        window.location  = './signin.html';
     }).catch((error) => {
         console.log(error);
     });

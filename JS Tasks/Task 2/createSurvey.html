@@ -20,11 +20,11 @@
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <!-- my js script -->
     <script defer src="./index.js"></script>
-    <script defer src="./auth.js" defer></script>
+    <script defer src="./auth.js"></script>
 </head>
 
 
-<body style="background: #F8F9FA;" onload="setDashboard()">
+<body style="background: #F8F9FA;" onload="setDashboard(), setCreateSurveyPage()">
     <header class="d-flex flex-wrap justify-content-center py-2 mb-4 bg-body shadow-sm">
         <b class="d-flex align-items-center bg-body mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
             <span class="fs-4 bg-body mx-5">
@@ -50,8 +50,8 @@
             <!-- Survey form -->
             <div class="my-2">
                 <span class="fs-3 fw-normal">
-                    <p class="fs-1 fw-normal" id="servey-title" style="margin: 0 0 0 5px;"></p>
-                    <p class="fs-5 fw-normal" id="servey-description" style="margin: 0 0 0 5px; color: grey;"></p>
+                    <p class="fs-1 fw-normal" id="survey-title" style="margin: 0 0 0 5px;"></p>
+                    <p class="fs-5 fw-normal" id="survey-description" style="margin: 0 0 0 5px; color: grey;"></p>
                 </span>
             </div>
 

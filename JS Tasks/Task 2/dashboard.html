@@ -18,9 +18,8 @@
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <!-- my js script -->
-    <script defer src="./auth.js" defer></script>
     <script defer src="./index.js"></script>
-
+    <script defer src="./auth.js"></script>
 </head>
 
 
@@ -57,38 +56,7 @@
 
         <div class="card container shadow-sm rounded">
             <div class="container py-4" id="dashboard-content">
-                <!-- <table class="table table-striped card-body">
-                    <thead>
-                        <tr>
-                            <th scope="col" style="color: #0d6efd;">Name</th>
-                            <th scope="col" style="color: #0d6efd;"></th>
-                            <th scope="col" style="color: #0d6efd;"></th>
-                            <th scope="col" style="color: #0d6efd;"></th>
-                            <th scope="col" style="color: #0d6efd;"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">COVID-19 Survey</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="./takingServey.html"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#0d6efd"
-                                 >   class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z" />
-                                </svg></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table> -->
-            </div>
-        </div>
-
-        <!-- Surveys End -->
-        <div class="card container shadow-sm rounded">
-            <div class="container text-center py-4">
+                 <div class="container text-center py-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-archive"
                     viewBox="0 0 16 16">
                     <path
@@ -96,65 +64,8 @@
                 </svg>
                 <p class="my-2">No Survey created yet!</p>
             </div>
-        </div>
-
-        <!-- Survey Report Screen Start -->
-
-        <!-- <div class="my-2">
-            <span class="mx-2 my-3 fs-3 fw-normal">Report</span>
-        </div>
-        <div class="card container shadow-sm rounded">
-            <div class="container py-4">
-                <table class="table table-striped card-body">
-                    <thead>
-                        <tr>
-                            <th scope="col" style="color: #0d6efd;">Worker</th>
-                            <th scope="col" style="color: #0d6efd;">Company</th>
-                            <th scope="col" style="color: #0d6efd;">Survey Result</th>
-                            <th scope="col" style="color: #0d6efd;">Submitted</th>
-                            <th scope="col" style="color: #0d6efd;">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">COVID-19 Survey</th>
-                            <td>Dev testing</td>
-                            <td>Pass</td>
-                            <td>12/1/2022, 12:11 AM</td>
-                            <td><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#0d6efd"
-                                    class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z" />
-                                </svg></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Omicron Survey</th>
-                            <td>Dev testing</td>
-                            <td>Pass</td>
-                            <td>12/1/2022, 12:11 AM</td>
-                            <td><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#0d6efd"
-                                    class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z" />
-                                </svg></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Polio Survey</th>
-                            <td>Dev testing</td>
-                            <td>Fail</td>
-                            <td>12/1/2022, 12:11 AM</td>
-                            <td><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#0d6efd"
-                                    class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z" />
-                                </svg></td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
-        </div> -->
-
-        <!-- Survey Report Screen End -->
+        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -173,9 +84,9 @@
                                 <input type="text" placeholder="Name of Survey" class="form-control" id="survey-name">
                             </div>
                             <div class="mb-3">
-                                <label for="servey-description" class="form-label">Description</label>
+                                <label for="survey-description" class="form-label">Description</label>
                                 <input type="text" placeholder="One line description" class="form-control"
-                                    id="servey-description">
+                                    id="survey-description">
                             </div>
                         </form>
                     </div>

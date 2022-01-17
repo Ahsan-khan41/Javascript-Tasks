@@ -1,12 +1,11 @@
 // takes Name of survey
 const modalFunc = () => {
     const serveyName = document.querySelector("#survey-name").value;
-    const serveyDescription = document.querySelector("#servey-description").value;
+    const serveyDescription = document.querySelector("#survey-description").value;
     if ((serveyName && serveyDescription) !== "") {
         let serveyObj = { serveyName: serveyName, serveyDescription: serveyDescription };
-        localStorage.setItem('serveyInfo', JSON.stringify(serveyObj));
-        location.replace('./createSurvey.html');
-        // setSurveyCreator();
+        localStorage.setItem('surveyInfo', JSON.stringify(serveyObj));
+        window.location  = './createSurvey.html';
     } else {
         document.querySelector("#modal-errors").innerHTML = 'Please fill the required information!'
     }
@@ -193,18 +192,22 @@ const onSurveyFinish = () => {
     if (surveyArr.length == 0) {
         alert("please input some questions")
     } else {
-        const surveyInfo = JSON.parse(localStorage.getItem('serveyInfo'));
+        const surveyInfo = JSON.parse(localStorage.getItem('surveyInfo'));
         const serveyName = surveyInfo.serveyName;
         const serveyDesc = surveyInfo.serveyDescription;
 
-        db.collection("serveys").add({
+        const createdBy = localStorage.getItem('userEmail');
+        // console.log(createdBy);
+
+        db.collection("serveys").doc("survey").set({
             serveyName,
             serveyDesc,
-            surveyArr
+            surveyArr,
+            createdBy
         })
-            .then((docRef) => {
-                console.log("Document written with ID: ", docRef.id);
-                location.replace('./dashboard.html')
+            .then(()=> {
+                console.log("Document successfully written!");
+                window.location = './dashboard.html';
             })
             .catch((error) => {
                 console.error("Error adding document: ", error);
@@ -213,19 +216,8 @@ const onSurveyFinish = () => {
 }
 
 
-// const setDashboard = () => {
-//     let serveyTitle = document.querySelector('#servey-title');
-//     let serveyDescription = document.querySelector('#servey-description');
-//     let serveyInfo = JSON.parse(localStorage.getItem('serveyInfo'));
-//     serveyTitle.innerHTML = serveyInfo.serveyName;
-//     serveyDescription.innerHTML = serveyInfo.serveyDescription;
-
-// }
-
-
 // function that sets up the dashboard
 const setDashboardContent = () => {
-    
     let surveyData;
     db.collection("serveys").get()
         .then((querySnapshot) => {
@@ -245,7 +237,7 @@ const setupDashboardData = (surveyData) => {
         <thead>
             <tr>
                 <th scope="col" style="color: #0d6efd;">Name</th>
-                <th scope="col" style="color: #0d6efd;"></th>
+                <th scope="col" style="color: #0d6efd;">CreatedBy</th>
                 <th scope="col" style="color: #0d6efd;"></th>
                 <th scope="col" style="color: #0d6efd;"></th>
                 <th scope="col" style="color: #0d6efd;"></th>
@@ -254,7 +246,7 @@ const setupDashboardData = (surveyData) => {
         <tbody>
             <tr>
                 <th scope="row">${surveyData.serveyName}</th>
-                <td></td>
+                <td>${surveyData.createdBy}</td>
                 <td></td>
                 <td></td>
                 <td>
@@ -267,6 +259,14 @@ const setupDashboardData = (surveyData) => {
             </tr>
         </tbody>
     </table>`
+}
+
+const setCreateSurveyPage = () => {
+    const surveyTitle = document.querySelector('#survey-title');
+    const surveyDesc = document.querySelector('#survey-description');
+    const surveyInfo = localStorage.getItem('surveyInfo');
+    surveyTitle.innerHTML = JSON.parse(surveyInfo).serveyName;
+    surveyDesc.innerHTML = JSON.parse(surveyInfo).serveyDescription;
 }
 
 
